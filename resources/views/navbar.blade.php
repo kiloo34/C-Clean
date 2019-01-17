@@ -13,12 +13,11 @@
                         <ul class="nav navbar-nav mnav">
                             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                             <li class="hidden mnav"> <a href="#page-top"></a> </li>
-                            <li class=""> <a href="#home">Home</a> </li>
-                            <li class=""> <a href="#about">About</a> </li>
-                            <li class=""> <a href="#service">Service</a> </li>
-                            <li class=""> <a href="#product">Product</a> </li>
-                            <li class=""> <a href="#portfolio">Portfolio</a> </li>
-                            <li class=""> <a href="#contact">Contact</a> </li>
+                            <li class=""> <a href="">Home</a> </li>
+                            <li class=""> <a href="">Service</a> </li>
+                            <li class=""> <a href="">Product</a> </li>
+                            <li class=""> <a href="">Portfolio</a> </li>
+                            <li class=""> <a href="">Contact</a> </li>
                             <li>
                                 <a href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
@@ -35,10 +34,9 @@
                         <ul class="nav navbar-nav mnav">
                             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                             <li class="hidden mnav"> <a href="#page-top"></a> </li>
-                            <li class=""> <a href="#home">Home</a> </li>
-                            <li class=""> <a href="#about">About</a> </li>
-                            <li class=""> <a href="#service">Service</a> </li>
-                            <li class=""> <a href="#product">Product</a> </li>
+                            <li class=""> <a href="">Home</a> </li>
+                            <li class=""> <a href="">Service</a> </li>
+                            <li class=""> <a href="">Product</a> </li>
                             <li> <a href="{{ route('login') }}">Login</a> </li>
                             <li> <a href="{{ route('register') }}">Register</a> </li>
                         </ul>
