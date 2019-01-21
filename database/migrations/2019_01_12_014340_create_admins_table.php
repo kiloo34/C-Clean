@@ -16,6 +16,10 @@ class CreateAdminsTable extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
             $table->String('nama');
+            $table->string('no_telp')->nullable()->unique();
+            $table->string('foto')->nullable();
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

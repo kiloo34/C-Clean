@@ -18,12 +18,7 @@ class isAdmin
     {
         if( $request->user()->role == "2" || $request->user()->role == "3" ){
             return $next($request);
-        } 
-        // else {
-        //     return redirect('/');
-        // }
-        // return redirect('/');
-        // return $next($request);
-        return abort(403);
+        }
+        return redirect('/');
     }
 }

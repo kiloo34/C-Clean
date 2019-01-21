@@ -23,10 +23,11 @@ Route::get('/', 'UserController@index')->name('dash');
 // });
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin', 'AdminController@index');
+    Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::resource('order', 'OrderController');
     Route::resource('service', 'ServiceController');
 });
+Route::get('/', 'UserController@index')->name('dash');
 
 Auth::routes();
 

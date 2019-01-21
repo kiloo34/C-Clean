@@ -15,12 +15,12 @@ class CreateMemberTable extends Migration
     {
         Schema::create('member', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('no_telp');
-            $table->string('alamat');
+            $table->string('nama')->nullable();
+            $table->string('no_telp')->nullable()->unique();
+            $table->string('alamat')->nullable();
             $table->string('foto')->nullable();
             $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('member')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>{{ count($order) }}</h3>
+                    <h3>0</h3>
                     <p>Total Order</p>
                 </div>
                 <div class="icon">
@@ -22,7 +22,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <h3>0</h3>
                     <p>Total Layanan</p>
                 </div>
                 <div class="icon">
@@ -38,7 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>0</h3>
                     <p>User Registrations</p>
                 </div>
                 <div class="icon">
@@ -54,7 +54,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>0</h3>
 
                     <p>Unique Visitors</p>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="box-header">
                             <h3 class="box-title">Daftar Order</h3>
                         </div>
-                              <!-- /.box-header -->
+                        <!-- /.box-header -->
                         <div class="box-body">
                             <table id="dt" class="table table-bordered table-striped" style="width:100%">
                                 <thead>

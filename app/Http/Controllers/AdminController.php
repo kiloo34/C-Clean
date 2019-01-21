@@ -9,10 +9,10 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $order = Order::all();
+        // $order = Order::all();
         // dd($order);
         return view('dashboard.index', [
-            'order' => $order,
+
         ]);
     }
 }

@@ -48,7 +48,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li>
-                <a href="{{ route('dash') }}">
+                <a href="{{ route('admin.index') }}">
                     <i class="fa fa-dashboard"></i><span>Dashboard</span>
                 </a>
             </li>
@@ -58,30 +58,33 @@
                     <span>Order</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('service.index') }}">
-                    <i class="fa fa-tags"></i>
-                    <span>Service</span>
-                    {{-- <span class="pull-right-container"> --}}
-                        {{-- <small class="label pull-right bg-green">new</small> --}}
-                    {{-- </span> --}}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-tags"></i> <span>Services</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('service.index') }}"><i class="fa fa-circle-o"></i> Service </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Produk </a></li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-laptop"></i>
-                    <span>UI Elements</span>
+                    <i class="fa fa-book"></i>
+                    <span>Laporan</span>
                     <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                    <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                    <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                    <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                    <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                    <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Pelayanan </a></li>
+                    {{-- <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons </a></li>
+                    <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons </a></li>
+                    <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders </a></li>
+                    <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline </a></li>
+                    <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals </a></li> --}}
                 </ul>
             </li>
             <li class="treeview">
