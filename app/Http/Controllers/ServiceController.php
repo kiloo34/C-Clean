@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -12,8 +13,13 @@ class ServiceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.service.index');
+    {   
+        $data = [];
+        $data = Service::with('produk')->get();
+        // dd($data);
+        return view('admin.service.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -23,7 +29,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.service.tambah');
     }
 
     /**
@@ -32,9 +38,19 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        // dd($r);
+        $r->validate([
+            'nama' => 'required|string|unique:service'
+        ]);
+
+        Service::create([
+            'nama' => $r->nama
+        ]);
+
+        return redirect()->route('service.index')->with('msg_success', 'Service Berhasi Di Tambah ');
+    
     }
 
     /**
@@ -56,7 +72,12 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $data = Service::findOrFail($id);
+        // dd($data);
+        return view('admin.service.ubah', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -66,9 +87,20 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $r, $id)
     {
-        //
+        $service = Service::findOrFail($id);
+
+        $r->validate([
+            'nama' => 'required|string|unique:service'
+        ]);
+
+        $service = Service::update([
+            'nama' => $r->nama
+        ]);
+
+        return redirect()->route('service.index')->with('msg_success', 'Service Berhasi di Perbarui ');
+    
     }
 
     /**
@@ -79,6 +111,8 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $service = Service::findOrFail($id);
+        $service->delete();
+        return redirect()->route('service.index')->with('msg_success', 'Service Berhasil di Hapus');
     }
 }

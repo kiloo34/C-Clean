@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'role', 'token', 'status'
+        'email', 'password', 'id_role', 'token', 'status'
     ];
 
     /**
@@ -27,17 +27,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function isAdmin()
+    public function admin()
     {
-        if ($this->role == '2') return true;
-
-        return false;
+        return $this->hasOne('App\Admin', 'id_user');
     }
-    
-    public function isMaster()
+
+    public function member()
     {
-        if ($this->role == '3') return true;
-        
-        return false;
+        return $this->hasOne('App\Member', 'id_user');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Role', 'id_role');
     }
 }

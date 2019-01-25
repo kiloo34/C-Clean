@@ -26,6 +26,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::resource('order', 'OrderController');
     Route::resource('service', 'ServiceController');
+    // Route::resource('service/{id}/destroy', 'ServiceController@destroy')->name('service.delete');
 });
 Route::get('/', 'UserController@index')->name('dash');
 

@@ -14,6 +14,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-green.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
@@ -26,23 +28,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('sidebar')
     <div class="content-wrapper">
         <section class="content-header">
-            <h1>
-                {{ Auth::user()->email }}
-                <small>Optional description</small>
-            </h1>
-            <ol class="breadcrumb">
+            {{-- <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
                 <li class="active">Here</li>
-            </ol>
+            </ol> --}}
         </section>
         <section class="content container-fluid">
-            
-            @if(session('success_msg'))
-                <div class="alert alert-success">
-                    {{ session('success_msg') }}
-                </div>
-            @endif
-
+            @include('msg_success')
+            @include('msg_error')
             @yield('content')
 
         </section>
@@ -54,8 +47,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     @stack('js')
     <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
