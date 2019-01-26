@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {   
-        // dd(User::where('id', Auth::user()->id)->get());
+        $data = Service::all();
+
         if (Auth::user()->role == 1) {
             return view('dashboard.home');
         } elseif (Auth::user()->role == 2) {

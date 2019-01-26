@@ -6,7 +6,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>0</h3>
+                    <h3>{{ count($order) }}</h3>
                     <p>Total Order</p>
                 </div>
                 <div class="icon">
@@ -22,8 +22,8 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>0</h3>
-                    <p>Total Layanan</p>
+                    <h3>{{ count($service) }}</h3>
+                    <p>Total Service</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -38,8 +38,8 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>0</h3>
-                    <p>User Registrations</p>
+                    <h3>{{ count($member) }}</h3>
+                    <p>Jumlah Pengguna</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>

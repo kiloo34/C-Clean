@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('dashboard.home');
 });
 
-Route::get('/', 'UserController@index')->name('dash');
+// Route::get('/', 'UserController@index')->name('dash');
 
 
 // Route::group(['middleware' => ['master']], function () {
@@ -26,9 +26,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::resource('order', 'OrderController');
     Route::resource('service', 'ServiceController');
-    // Route::resource('service/{id}/destroy', 'ServiceController@destroy')->name('service.delete');
+    Route::get('service/listProduk/{id}', 'ServiceController@listProdukService')->name('service.listProdukService');
+    Route::resource('produk', 'ProdukController');
 });
-Route::get('/', 'UserController@index')->name('dash');
+// Route::get('/', 'UserController@index')->name('dash');
 
 Auth::routes();
 

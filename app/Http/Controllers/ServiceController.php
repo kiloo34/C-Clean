@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use App\Produk;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -40,7 +41,6 @@ class ServiceController extends Controller
      */
     public function store(Request $r)
     {
-        // dd($r);
         $r->validate([
             'nama' => 'required|string|unique:service'
         ]);
@@ -50,7 +50,6 @@ class ServiceController extends Controller
         ]);
 
         return redirect()->route('service.index')->with('msg_success', 'Service Berhasi Di Tambah ');
-    
     }
 
     /**
@@ -95,12 +94,11 @@ class ServiceController extends Controller
             'nama' => 'required|string|unique:service'
         ]);
 
-        $service = Service::update([
+        $service->update([
             'nama' => $r->nama
         ]);
 
         return redirect()->route('service.index')->with('msg_success', 'Service Berhasi di Perbarui ');
-    
     }
 
     /**
@@ -114,5 +112,17 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
         $service->delete();
         return redirect()->route('service.index')->with('msg_success', 'Service Berhasil di Hapus');
+    }
+
+    public function listProdukService($id)
+    {
+        // dd('masuk');
+        $service = Service::find($id);
+        $data = Produk::with('service')->where('id_service', $id)->get();
+        // dd($service);
+        return view('admin.produk.list-produk', [
+            'data'      => $data,
+            'service'   => $service
+        ]);
     }
 }

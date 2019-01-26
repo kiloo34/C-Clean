@@ -36,7 +36,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('service.index') }}"><i class="fa fa-circle-o"></i> Service </a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Produk </a></li>
+                    <li><a href="{{ route('produk.index') }}"><i class="fa fa-circle-o"></i> Produk </a></li>
                 </ul>
             </li>
             <li>
