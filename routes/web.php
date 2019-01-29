@@ -28,6 +28,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('service', 'ServiceController');
     Route::get('service/listProduk/{id}', 'ServiceController@listProdukService')->name('service.listProdukService');
     Route::resource('produk', 'ProdukController');
+    Route::resource('cabang', 'CabangController');
+    Route::get('/cabang/kabupaten/{id}', 'CabangController@kabupaten');
+    Route::get('/cabang/kecamatan/{id}', 'CabangController@kecamatan');
+    Route::get('/cabang/desa/{id}', 'CabangController@desa');
 });
 // Route::get('/', 'UserController@index')->name('dash');
 

@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label>Harga</label>
                     <div class="input-group has-feedback {{ $errors->has('harga') ? 'has-error' : '' }}">
-                        <input type="text" class="form-control" id="harga" value="{{ $produk->harga }}" name="harga" required>
+                        <input type="text" class="form-control" id="uang" value="{{ $produk->harga }}" name="harga" required>
                         <span class="input-group-addon"><strong>/ kg</strong></span>
                         @if ($errors->has('harga'))
                             <span class="help-block">

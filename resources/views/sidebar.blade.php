@@ -40,7 +40,7 @@
                 </ul>
             </li>
             <li>
-                <a href="{{ route('order.index') }}">
+                <a href="{{ route('cabang.index') }}">
                     <i class="fa fa-home"></i>
                     <span>Cabang</span>
                 </a>

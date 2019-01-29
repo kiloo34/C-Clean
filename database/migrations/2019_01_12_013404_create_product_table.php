@@ -18,8 +18,8 @@ class CreateProductTable extends Migration
             $table->String('nama');
             $table->string('durasi');
             $table->String('harga');
-            $table->integer('id_services')->unsigned();
-            $table->foreign('id_services')->references('id')->on('services')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('id_service')->unsigned();
+            $table->foreign('id_service')->references('id')->on('service')->onDelete('cascade');
             $table->timestamps();
         });
     }

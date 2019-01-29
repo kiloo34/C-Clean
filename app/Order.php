@@ -10,6 +10,8 @@ class Order extends Model
 
     protected $fillable = [
         'id',
+        'total',
+        'deskripsi',
         'id_member',
         'id_admin',
     ];
@@ -18,16 +20,16 @@ class Order extends Model
 
     public function admin()
     {
-        return $this->belongsTo('App\Admin', 'id_admin', 'other_key');
+        return $this->belongsTo('App\Admin', 'id_admin');
     }
 
     public function member()
     {
-        return $this->belongsTo('App\Member', 'id_member', 'other_key');
+        return $this->belongsTo('App\Member', 'id_member');
     }
 
     public function order_detail()
     {
-        return $this->belongsTo('App\Order_detail', 'id_order');
+        return $this->hasMany('App\Order_detail', 'id_order');
     }
 }

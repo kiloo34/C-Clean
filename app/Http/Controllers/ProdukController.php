@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
 use App\Produk;
 use App\Service;
 
@@ -44,21 +45,29 @@ class ProdukController extends Controller
      */
     public function store(Request $r)
     {
-        $r->validate([
-            'nama'      =>  'required|string|unique:product',
-            'durasi'    =>  'required|numeric',
-            'harga'     =>  'required|numeric',
-            'service'   =>  'required|numeric'
-        ]);
+        // $produk = Produk::all();
+        $produk= Produk::with('service')->where('id_service', $r->service)->get();
+        
+        if (isset($produk)) {
+            foreach ($produk as $p) {
+                if ($r->nama == $p->nama) {
+                    $r->validate([
+                        'nama'      =>  'required|string|unique:product',
+                        'durasi'    =>  'required|numeric',
+                        'harga'     =>  'required',
+                        'service'   =>  'required|numeric'
+                    ]);
+                }
+            }
+            Produk::create([
+                'nama'      =>  $r->nama,
+                'durasi'    =>  $r->durasi,
+                'harga'     =>  $r->harga,
+                'id_service'=>  $r->service
+            ]);
+        }
 
-        Produk::create([
-            'nama'      =>  $r->nama,
-            'durasi'    =>  $r->durasi,
-            'harga'     =>  $r->harga,
-            'id_service'=>  $r->service
-        ]);
-
-        return redirect()->route('produk.index')->with('msg_success', 'Produk Berhasil Ditambahkan');
+        return redirect()->route('produk.index')->with('success', 'Produk Berhasil Ditambahkan');
     }
 
     /**
@@ -99,11 +108,11 @@ class ProdukController extends Controller
     public function update(Request $r, $id)
     {
         $produk = Produk::findOrFail($id);
-        // dd($produk);
+
         $r->validate([
             'nama'      => 'required|string',
             'durasi'    => 'required|numeric',
-            'harga'     => 'required|numeric',
+            'harga'     => 'required',
         ]);
 
         $produk->update([
@@ -112,8 +121,7 @@ class ProdukController extends Controller
             'harga' => $r->harga
         ]);
 
-        return redirect()->route('produk.index')->with('msg_success', 'Produk Berhasi di Perbarui ');
-    
+        return redirect()->route('produk.index')->with('success', 'Produk Berhasi di Perbarui ');
     }
 
     /**
@@ -126,6 +134,6 @@ class ProdukController extends Controller
     {
         $produk = Produk::findOrFail($id);
         $produk->delete();
-        return redirect()->route('produk.index')->with('msg_success', 'Produk Berhasil di Hapus');
+        return redirect()->route('produk.index')->with('success', 'Produk Berhasil di Hapus');
     }
 }

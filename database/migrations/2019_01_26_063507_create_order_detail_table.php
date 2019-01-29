@@ -19,9 +19,9 @@ class CreateOrderDetailTable extends Migration
             $table->string('kuantitas');
             $table->integer('total');
             $table->integer('id_order')->unsigned();
-            $table->foreign('id_order')->references('id')->on('order');
+            $table->foreign('id_order')->references('id')->on('order')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('id_produk')->unsigned();
-            $table->foreign('id_produk')->references('id')->on('produk');
+            $table->foreign('id_produk')->references('id')->on('product')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

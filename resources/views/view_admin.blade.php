@@ -35,8 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </ol> --}}
             </section>
             <section class="content container-fluid">
-                @include('msg_success')
-                @include('msg_error')
+                
                 @yield('content')
 
             </section>
@@ -232,6 +231,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
 
     <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
     <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     @stack('js')
@@ -243,6 +243,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('dist/js/demo.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweet::alert')
     
     @stack('script')
     <script>
@@ -256,6 +258,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 'autoWidth'   : true
             })
         });
+        $('#uang').maskMoney({prefix:'Rp. ', thousands:'.', decimal:',', precision:0});
     </script>
 </body>
 </html>

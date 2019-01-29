@@ -18,37 +18,43 @@
                         </span>
                     @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group has-feedback {{ $errors->has('durasi') ? 'has-error' : '' }}">
                     <label>Durasi</label>
-                    <div class="input-group has-feedback {{ $errors->has('durasi') ? 'has-error' : '' }}">
+                    <div class="input-group">
                         <input type="text" class="form-control" id="durasi" placeholder="Durasi" name="durasi" required>
                         <span class="input-group-addon"> Hari</span>
-                        @if ($errors->has('durasi'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('durasi') }}</strong>
-                            </span>
-                        @endif
                     </div>
+                    @if ($errors->has('durasi'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('durasi') }}</strong>
+                        </span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group has-feedback {{ $errors->has('harga') ? 'has-error' : '' }}">
                     <label>Harga</label>
-                    <div class="input-group has-feedback {{ $errors->has('harga') ? 'has-error' : '' }}">
-                        <input type="text" class="form-control" id="harga" placeholder="Harga" name="harga" required>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="uang" placeholder="Harga" name="harga" required>
                         <span class="input-group-addon"><strong>/ kg</strong></span>
-                        @if ($errors->has('harga'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('harga') }}</strong>
-                            </span>
-                        @endif
                     </div>
+                    @if ($errors->has('harga'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('harga') }}</strong>
+                        </span>
+                    @endif
                 </div>
-                <div class="form-group">
+                <div class="form-group has-feedback {{ $errors->has('service') ? 'has-error' : '' }}">
                     <label>Service</label>
-                    <select class="form-control service" style="width: 100%;" name="service" required>
+                    <select class="form-control service" style="width: 100%;" name="service">
+                        <option value="">Pilih Salah Satu</option> 
                         @foreach ($data as $d)
                             <option value="{{ $d->id }}">{{ $d->nama }}</option> 
-                        @endforeach     
+                        @endforeach    
                     </select>
+                    @if ($errors->has('service'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('service') }}</strong>
+                        </span>
+                    @endif 
                 </div>
             </div>
             <div class="box-footer">

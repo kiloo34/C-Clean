@@ -29,4 +29,9 @@ class Admin extends Model
     {
         return $this->belongsTo('App\Cabang', 'id_cabang');
     }
+
+    public function order()
+    {
+        return $this->hasMany('App\Order', 'id_admin');
+    }
 }

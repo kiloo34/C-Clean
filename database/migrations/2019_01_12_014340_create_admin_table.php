@@ -19,10 +19,12 @@ class CreateAdminTable extends Migration
             $table->enum('jk', ['laki-laki', 'perempuan'])->nullable();
             $table->string('no_telp')->nullable()->unique();
             $table->string('foto')->nullable();
+            $table->integer('id_alamat')->unsigned()->nullable();
+            $table->foreign('id_alamat')->references('id')->on('alamat')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_cabang')->unsigned();
-            $table->foreign('id_cabang')->references('id')->on('cabang');
+            $table->foreign('id_cabang')->references('id')->on('cabang')->onUpdate('cascade');
             $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
 class OrderController extends Controller
 {
@@ -13,10 +14,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data = Order::with()->get();
-        return view(['dashboard.index', [
+        $data = Order::with('order_detail', 'admin')->get();
+        // dd($data);
+        return view('admin.order.index', [
             'data' => $data,
-        ]]);
+        ]);
     }
 
     /**

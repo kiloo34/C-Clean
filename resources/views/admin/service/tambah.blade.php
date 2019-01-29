@@ -18,6 +18,16 @@
                     @endif
                     <span class="fa fa-pencil-square-o form-control-feedback"></span>
                 </div>
+                <div class="form-group has-feedback {{ $errors->has('deskripsi') ? 'has-error' : '' }}">
+                    <label for="deskripsi">Deskripsi </label>
+                    <input type="text" class="form-control" id="deskripsi" placeholder="Nama Service" name="deskripsi">
+                    @if ($errors->has('deskripsi'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('deskripsi') }}</strong>
+                        </span>
+                    @endif
+                    <span class="fa fa-pencil-square-o form-control-feedback"></span>
+                </div>
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary btn-poss-create">Submit</button>

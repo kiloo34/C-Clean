@@ -18,8 +18,9 @@ class CreateMemberTable extends Migration
             $table->string('nama')->nullable();
             $table->enum('jk', ['laki-laki', 'perempuan'])->nullable();
             $table->string('no_telp')->nullable()->unique();
-            $table->string('alamat')->nullable();
             $table->string('foto')->nullable();
+            $table->integer('id_alamat')->unsigned();
+            $table->foreign('id_alamat')->references('id')->on('alamat')->onDelete('cascade');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

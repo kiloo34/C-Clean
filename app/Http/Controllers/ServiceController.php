@@ -46,10 +46,11 @@ class ServiceController extends Controller
         ]);
 
         Service::create([
-            'nama' => $r->nama
+            'nama'      => $r->nama,
+            'deskripsi' => $r->deskripsi
         ]);
 
-        return redirect()->route('service.index')->with('msg_success', 'Service Berhasi Di Tambah ');
+        return redirect()->route('service.index')->with('success', 'Service Berhasi Di Tambah ');
     }
 
     /**
@@ -98,7 +99,7 @@ class ServiceController extends Controller
             'nama' => $r->nama
         ]);
 
-        return redirect()->route('service.index')->with('msg_success', 'Service Berhasi di Perbarui ');
+        return redirect()->route('service.index')->with('success', 'Service Berhasi di Perbarui ');
     }
 
     /**
@@ -111,7 +112,7 @@ class ServiceController extends Controller
     {
         $service = Service::findOrFail($id);
         $service->delete();
-        return redirect()->route('service.index')->with('msg_success', 'Service Berhasil di Hapus');
+        return redirect()->route('service.index')->with('success', 'Service Berhasil di Hapus');
     }
 
     public function listProdukService($id)

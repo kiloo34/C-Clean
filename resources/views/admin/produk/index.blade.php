@@ -28,7 +28,7 @@
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $d->nama }}</td>
                                         <td>{{ $d->durasi }} Hari</td>
-                                        <td>Rp. {{ $d->harga }} ,00</td>
+                                        <td>{{ $d->harga }}</td>
                                         <td>{{ $d->service->nama }}</td>
                                         <td>
                                             <a href="{{ route('produk.edit', $d->id) }}" class="btn btn-xs btn-info"><span class="fa fa-pencil-square-o"></span> Edit</a>

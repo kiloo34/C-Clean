@@ -16,9 +16,11 @@ class CreateCabangTable extends Migration
         Schema::create('cabang', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->text('alamat');
             $table->string('no_telp');
+            $table->integer('id_alamat')->unsigned();
+            $table->foreign('id_alamat')->references('id')->on('alamat')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
