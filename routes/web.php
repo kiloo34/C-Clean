@@ -32,6 +32,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/cabang/kabupaten/{id}', 'CabangController@kabupaten');
     Route::get('/cabang/kecamatan/{id}', 'CabangController@kecamatan');
     Route::get('/cabang/desa/{id}', 'CabangController@desa');
+    Route::resource('akses', 'RoleController');
 });
 // Route::get('/', 'UserController@index')->name('dash');
 

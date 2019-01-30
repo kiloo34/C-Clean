@@ -45,11 +45,17 @@
                     <span>Cabang</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route('order.index') }}">
-                    <i class="fa fa-users"></i>
-                    <span>Pengguna</span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i> <span>Pengguna</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href=""><i class="fa fa-circle-o"></i> Anggota </a></li>
+                    <li><a href="{{ route('akses.index') }}"><i class="fa fa-circle-o"></i> Hak Akses </a></li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">

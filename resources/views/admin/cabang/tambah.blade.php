@@ -149,7 +149,7 @@
                 });
                 $("#kecamatan").show();
             });
-
+            
             $(".kecamatan").on('change', function () {
                 const ss = $(this).val();
                 console.log(ss);
