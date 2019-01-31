@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Service;
 
 class UserController extends Controller
 {
@@ -16,13 +17,14 @@ class UserController extends Controller
     public function index()
     {   
         $data = Service::all();
-
-        if (Auth::user()->role == 1) {
-            return view('dashboard.home');
-        } elseif (Auth::user()->role == 2) {
-            return view('dashboard.index');
-        } else {
-            return view('dashboard.index');
+        if (Auth::check()) {
+            if (Auth::user()->role == 1) {
+                return view('dashboard.home');
+            } elseif (Auth::user()->role == 2) {
+                return view('dashboard.index');
+            } else {
+                return view('dashboard.index');
+            }
         }
     }
 

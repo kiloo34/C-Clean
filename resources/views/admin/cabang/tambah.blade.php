@@ -23,7 +23,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="form-group has-feedback {{ $errors->has('nama') ? 'has-error' : '' }}">
+                        <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
                             <label for="provinsi">Provinsi </label>
                             <select class="form-control provinsi" style="width: 100%;" name="provinsi" required>
                                 <option selected> Provinsi</option>

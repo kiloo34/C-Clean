@@ -18,4 +18,9 @@ class Role extends Model
     {
         return $this->hasOne('App\User', 'id_role');
     }
+
+    public function akses()
+    {
+        return $this->belongsToMany('App\Akses');
+    }
 }

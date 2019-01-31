@@ -1,8 +1,9 @@
 @extends('view_admin')
 @section('judul', 'Admin')
 @section('content')
+<section class="content">
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
@@ -17,8 +18,7 @@
                 </a>
             </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
@@ -33,8 +33,7 @@
                 </a>
             </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
@@ -49,8 +48,7 @@
                 </a>
             </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-md-12 col-xs-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
@@ -66,46 +64,43 @@
                 </a>
             </div>
         </div>
-        <!-- ./col -->
-        <section class="content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Daftar Order</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <table id="dt" class="table table-bordered table-striped" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>No telphone</th>
-                                        <th>Id Order</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>No telphone</th>
-                                        <th>Id Order</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Daftar Order</h3>
+                </div>
+                <div class="box-body">
+                    <table id="dt" class="table table-bordered table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Alamat</th>
+                                <th>No telphone</th>
+                                <th>Id Order</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Alamat</th>
+                                <th>No telphone</th>
+                                <th>Id Order</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

@@ -1,16 +1,11 @@
-<!-- Main Header -->
 <header class="main-header">
-
     @include('logo')
-
-    <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
+
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
-        {{-- {{dd(Auth::user()->role->nama == 'admin')}} --}}
-
+        
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">

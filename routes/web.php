@@ -15,13 +15,6 @@ Route::get('/', function () {
     return view('dashboard.home');
 });
 
-// Route::get('/', 'UserController@index')->name('dash');
-
-
-// Route::group(['middleware' => ['master']], function () {
-//     Route::get('/master', 'MasterController@index');
-// });
-
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::resource('order', 'OrderController');
@@ -33,9 +26,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/cabang/kecamatan/{id}', 'CabangController@kecamatan');
     Route::get('/cabang/desa/{id}', 'CabangController@desa');
     Route::resource('akses', 'RoleController');
+    Route::get('/akses/DetailAkses/{id}', 'RoleController@getDetailAkses');
+    Route::post('/akses/{role}/{id}', 'RoleController@tambahMenu')->name('akses.tambahMenu');
 });
-// Route::get('/', 'UserController@index')->name('dash');
-
 Auth::routes();
 
 Route::post('/daftar', 'MemberController@daftar')->name('daftar');

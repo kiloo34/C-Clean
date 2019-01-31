@@ -52,7 +52,7 @@ class ProdukController extends Controller
             foreach ($produk as $p) {
                 if ($r->nama == $p->nama) {
                     $r->validate([
-                        'nama'      =>  'required|string|unique:product',
+                        'nama'      =>  'required|string|unique:product,nama',
                         'durasi'    =>  'required|numeric',
                         'harga'     =>  'required',
                         'service'   =>  'required|numeric'

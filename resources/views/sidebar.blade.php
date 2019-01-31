@@ -1,3 +1,4 @@
+{{-- @include('header') --}}
 <aside class="main-sidebar">
     <section class="sidebar">
         <div class="user-panel">

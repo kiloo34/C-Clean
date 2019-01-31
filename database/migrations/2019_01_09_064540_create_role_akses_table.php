@@ -15,9 +15,9 @@ class CreateRoleAksesTable extends Migration
     {
         Schema::create('role_akses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_role')->unsigned();
+            $table->integer('id_role')->unsigned()->nullable();
             $table->foreign('id_role')->references('id')->on('role')->onDelete('cascade');
-            $table->integer('id_akses')->unsigned();
+            $table->integer('id_akses')->unsigned()->nullble();
             $table->foreign('id_akses')->references('id')->on('akses')->onDelete('cascade');
             $table->timestamps();
         });

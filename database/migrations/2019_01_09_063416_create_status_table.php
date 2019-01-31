@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetailAksesTable extends Migration
+class CreateStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateDetailAksesTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_akses', function (Blueprint $table) {
+        Schema::create('status', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
             $table->boolean('status')->default(0);
             $table->integer('id_akses')->unsigned();
             $table->foreign('id_akses')->references('id')->on('akses')->onDelete('cascade');
+            $table->integer('id_detail')->unsigned();
+            $table->foreign('id_detail')->references('id')->on('detail_akses')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateDetailAksesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_akses');
+        Schema::dropIfExists('status');
     }
 }
