@@ -66,13 +66,11 @@ class RoleController extends Controller
     public function show($id)
     {
         $data       = Role::findOrFail($id);    //role
-        $status     = Status::with('akses', 'detail')->get();   //show list Menu
-        $role_akses = Akses_Role::with('akses')->where('id_role', $id)->get();
+        $role_akses = Akses_Role::where([['id_role', $id], ['status', true]])->get();
         $akses      = Akses::all(); //get akses
 
         return view('admin.akses.detail', [
             'data'      => $data,
-            'status'    => $status,
             'role_akses'=> $role_akses,
             'akses'     => $akses
         ]);
@@ -96,7 +94,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role, $id)
     {
         //
     }
@@ -112,41 +110,56 @@ class RoleController extends Controller
         //
     }
 
-    public function tambahMenu(Request $r, Role $role)//Create Menu
-    {
-        $r->validate([
-            'id_akses' => 'required|unique:role_akses'
-        ]);
-
-        Akses_Role::create([
-            'id_role'   => $role->id,
-            'id_akses'  => $r->nama
-        ]);
-
-        return redirect()->route('akses.show', $role->id)->with('success', 'Menu Berhasil Ditambahkan !');
-    }
-
-    public function tambahAkses(Request $r, Akses $akses)//Create Akses
+    public function tambahAkses(Request $r, Role $role, $id)//Create Akses
     {   
-        dd($akses);
+        // dd($id, $role->id);
+        // dd($role);
+        $check  = Akses_Role::where([['id_role', $role->id], ['id_detail', $id]])->first();
+        // dd(isset($check));
+        
         $r->validate([
-            'nama' => 'required'
+            'id_detail' => 'required|numeric'
         ]);
-        // dd($role->id);
-        Akses_Role::create([
-            'id_role'   => $role->id,
-            'id_akses'  => $r->nama
-        ]);
+        
+        if (isset($check)) {
+            if ($check->status == false) {
+                $check->update([
+                    'status'    => true
+                ]);
+            } else {
+                $r->validate([
+                    'id_detail' => 'required|numeric|unique:role_akses'
+                ]); 
+            }
+        } else {
+            Akses_Role::create([
+                'status'    => true,
+                'id_role'   => $role->id,
+                'id_detail' => $r->id_detail
+            ]);
+        }
 
         return redirect()->route('akses.show', $role->id)->with('success', 'Menu Berhasil Ditambahkan !');
     }
 
     public function getDetailAkses($id)//ajax
     {
-        $detail = Akses_Detail::where('id_akses', $id)->get();
-        // dd($detail);
+        $detail     = Akses_Detail::where('id_akses', $id)->get();
+        echo "<option selected> Choose One</option>";
         foreach ($detail as $d) {
-            echo "<option value=" . $d->id . ">$d->nama</option>";
+            echo "<option value=".$d->id.">$d->nama</option>";
         }
+    }
+
+    public function UpdateAkses(Request $r, Role $role, $id)
+    {
+        // $akses  = Akses_Role::findOrFail($id);
+        $role   = Akses_Role::where([['id_role', $role->id], ['id_detail', $id]]);
+        // dd($role);
+        $role->update([
+            'status'    => 0,
+        ]);
+
+        return redirect()->back()->with('success', 'Akses Berhasil Dihapus');
     }
 }

@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin', 'AdminController@index')->name('admin.index');
+    Route::resource('admin', 'AdminController');
     Route::resource('order', 'OrderController');
     Route::resource('service', 'ServiceController');
     Route::get('service/listProduk/{id}', 'ServiceController@listProdukService')->name('service.listProdukService');
@@ -27,7 +27,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/cabang/desa/{id}', 'CabangController@desa');
     Route::resource('akses', 'RoleController');
     Route::get('/akses/DetailAkses/{id}', 'RoleController@getDetailAkses');
-    Route::post('/akses/{role}/{id}', 'RoleController@tambahMenu')->name('akses.tambahMenu');
+    Route::post('/akses/{role}/{id}', 'RoleController@tambahAkses')->name('akses.tambahAkses');
+    Route::get('/akses/edit/{role}/{id}', 'RoleController@UpdateAkses')->name('akses.ubah');
 });
 Auth::routes();
 

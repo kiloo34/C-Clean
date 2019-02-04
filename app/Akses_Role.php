@@ -10,15 +10,16 @@ class Akses_Role extends Model
 
     protected $fillable = [
         'id',
+        'status',
         'id_role',
-        'id_akses'
+        'id_detail'
     ];
 
     public $timestamps = false;
 
-    public function akses()
+    public function detail()
     {
-        return $this->belongsTo('App\Akses', 'id_akses');
+        return $this->belongsTo('App\Akses_Detail', 'id_detail');
     }
     
     public function role()

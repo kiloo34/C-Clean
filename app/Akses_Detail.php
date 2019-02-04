@@ -11,17 +11,23 @@ class Akses_Detail extends Model
     protected $fillable = [
         'id',
         'nama',
+        'id_akses'
     ];
 
     public $timestamps = false;
 
     public function akses()
     {
-        return $this->belongsToMany('App\Akses');
+        return $this->belongsTo('App\Akses', 'id_akses');
     }
 
-    public function status()
+    public function aksesRole()
     {
-        return $this->hasMany('App\Status', 'id_detail');
+        return $this->hasMany('App\Akses_Role', 'id_detail');
+    }
+
+    public function role()
+    {
+        return $this->belongsToMany('App\Role')->withPivot('id', 'nama', 'id_akses')->wherePivot('id', Auth::user()->role);
     }
 }

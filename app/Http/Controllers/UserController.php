@@ -16,11 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {   
-        $data = Service::all();
         if (Auth::check()) {
             if (Auth::user()->role == 1) {
                 return view('dashboard.home');
-            } elseif (Auth::user()->role == 2) {
+            } elseif (Auth::user()->role == 'admin') {
                 return view('dashboard.index');
             } else {
                 return view('dashboard.index');

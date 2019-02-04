@@ -16,6 +16,8 @@ class CreateDetailAksesTable extends Migration
         Schema::create('detail_akses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->integer('id_akses')->unsigned()->nullble();
+            $table->foreign('id_akses')->references('id')->on('akses')->onDelete('cascade');
             $table->timestamps();
         });
     }

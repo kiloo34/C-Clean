@@ -15,10 +15,11 @@ class CreateRoleAksesTable extends Migration
     {
         Schema::create('role_akses', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('status')->default(false);
             $table->integer('id_role')->unsigned()->nullable();
             $table->foreign('id_role')->references('id')->on('role')->onDelete('cascade');
-            $table->integer('id_akses')->unsigned()->nullble();
-            $table->foreign('id_akses')->references('id')->on('akses')->onDelete('cascade');
+            $table->integer('id_detail')->unsigned()->nullble();
+            $table->foreign('id_detail')->references('id')->on('detail_akses')->onDelete('cascade');
             $table->timestamps();
         });
     }

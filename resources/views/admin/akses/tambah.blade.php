@@ -1,9 +1,9 @@
 @extends('view_admin')
-@section('judul', 'Tambah Service')
+@section('judul', 'Tambah Akses')
 @section('content')
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Form Tambah Service</h3>
+            <h3 class="box-title">Form Tambah Akses</h3>
         </div>
         <form action="{{ route('akses.store') }}" method="post">
             <div class="box-body">

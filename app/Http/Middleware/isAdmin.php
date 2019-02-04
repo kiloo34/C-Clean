@@ -16,9 +16,13 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        if( $request->user()->role->nama == "admin" ){
+        if (Auth::check()) {
+            if( $request->user()->role->nama == "member" ){
+                return redirect('/');   
+            } 
             return $next($request);
         }
-        return redirect('/');
+        return redirect(404);
+        Auth::login();
     }
 }

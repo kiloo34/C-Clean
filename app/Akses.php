@@ -15,23 +15,18 @@ class Akses extends Model
 
     public $timestamps = false;
 
-    public function detail_akses()
+    public function detail()
     {
-        return $this->belongsToMany('App\Akses_Detail');
+        return $this->hasMany('App\Akses_Detail', 'id_akses');
     }
 
-    public function status()
+    public function aksesRole()
     {
-        return $this->hasMany('App\Status', 'id_akses');
+        return $this->hasManyThrough('App\Akses_role', 'App\Akses_Detail');
     }
 
-    public function role_akses()
-    {
-        return $this->hasMany('App\Akses_Role', 'id_role');
-    }
-
-    public function role()
-    {
-        return $this->belongsToMany('App\Role');
-    }
+    // public function roles()
+    // {
+    //     return $this->belongsToMany('App\Role', 'role_user_table', 'user_id', 'role_id');
+    // }
 }
