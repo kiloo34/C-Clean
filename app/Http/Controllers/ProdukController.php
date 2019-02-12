@@ -59,6 +59,13 @@ class ProdukController extends Controller
                     ]);
                 }
             }
+            $r->validate([
+                'nama'      =>  'required|string',
+                'durasi'    =>  'required|numeric',
+                'harga'     =>  'required',
+                'service'   =>  'required|numeric'
+            ]);
+
             Produk::create([
                 'nama'      =>  $r->nama,
                 'durasi'    =>  $r->durasi,

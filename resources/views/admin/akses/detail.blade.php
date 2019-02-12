@@ -111,7 +111,7 @@
                 });
                 $.ajax({
                     type: 'GET',
-                    url: '/public/akses/DetailAkses/'+ss,
+                    url: '/akses/DetailAkses/'+ss,
                     success: function (data) {
                         // console.log('masuk');
                         $('.fitur').html(data);
@@ -149,9 +149,10 @@
             var split   = action.split("/");
             var url     = "/"+split[3]+"/edit/"+split[4]+"/"+ss;
 
-            // console.log(ss);
-            // console.log(action);
-            // console.log(url);
+            console.log(ss);
+            console.log(action);
+            console.log(split);
+            console.log(url);   
 
             swal({
                 title: "Yakin Menghapus Akses Ini ??",

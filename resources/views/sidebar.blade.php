@@ -5,11 +5,11 @@
                 <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                @if (Auth::user()->role->nama == 'admin')
+                {{-- @if (Auth::user()->role->nama == 'admin') --}}
                     <p>{{ Auth::user()->admin->nama }}</p>    
-                @else
-                    <p>{{ Auth::user()->email }}</p>
-                @endif
+                {{-- @else --}}
+                    {{-- <p>{{ Auth::user()->email }}</p> --}}
+                {{-- @endif --}}
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -21,9 +21,10 @@
                     <i class="fa fa-dashboard"></i><span> Dashboard</span>
                 </a>
             </li>
+            {{-- {{dd(Auth::user()->role->aksesRole())}} --}}
             @foreach (Auth::user()->role->aksesRole()->where('status', true) as $a)
 
-                <?php $check = ''?>     
+                <?php $check = ''?>
                 @if ($check != $a->detail->nama)
                     @if ($a->detail->nama == 'Lihat Order')
                         <li>
@@ -70,7 +71,7 @@
 
                 <?php $check = ''?>     
                 @if ($check != $a->detail->nama)
-                    @if ($a->detail->nama == 'Lihat Akses'||$a->detail->nama == 'Lihat Anggota')
+                    @if ($a->detail->nama == 'Menu Pengguna')
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-users"></i> <span>Pengguna</span>
@@ -79,7 +80,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href=""><i class="fa fa-circle-o"></i> Anggota </a></li>
+                                <li><a href="{{ route('anggota.index'   ) }}"><i class="fa fa-circle-o"></i> Anggota </a></li>
                                 <li><a href="{{ route('akses.index') }}"><i class="fa fa-circle-o"></i> Hak Akses </a></li>
                             </ul>
                         </li>
@@ -129,7 +130,7 @@
 
                 <?php $check = ''?>     
                 @if ($check != $a->detail->nama)
-                    @if ($a->detail->nama == 'Pengaturan')
+                    @if ($a->detail->nama == 'Menu Pengaturan')
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-gear"></i> <span>Pengaturan</span>

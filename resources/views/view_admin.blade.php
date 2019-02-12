@@ -71,7 +71,7 @@
                 "scrollX"       : true
             })
         });
-        $('#uang').maskMoney({prefix:'Rp. ', thousands:'.', decimal:',', precision:0});
+        $('#uang').maskMoney({thousands:',', decimal:'.', precision:0});
         $.widget.bridge('uibutton', $.ui.button);
     </script>
 </body>

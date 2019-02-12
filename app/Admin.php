@@ -13,7 +13,8 @@ class Admin extends Model
         'nama', 
         'jk', 
         'no_telp', 
-        'foto', 
+        'foto',
+        'id_alamat', 
         'id_cabang', 
         'id_user'
     ];
@@ -23,6 +24,11 @@ class Admin extends Model
     public function user()
     {
         return $this->belongsTo('App\User', 'id_user');
+    }
+
+    public function alamat()
+    {
+        return $this->belongsTo('App\Alamat', 'id_alamat');
     }
 
     public function cabang()

@@ -7,7 +7,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Daftar Order</h3>
-                        <a href="{{ route('produk.create') }}" class="btn btn-m btn-primary btn-poss-create"><span class="fa fa-plus-square"></span> Tambah</a>
+                        <a href="{{ route('order.create') }}" class="btn btn-m btn-primary btn-poss-create"><span class="fa fa-plus-square"></span> Tambah</a>
                     </div>
                     <div class="box-body">
                         <table id="dt" class="table table-bordered table-striped" style="width:100%">

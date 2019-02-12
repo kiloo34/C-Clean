@@ -97,6 +97,7 @@ class MemberController extends Controller
             'email' => $r->email,
             'password' => bcrypt($r->password),
             'token' => str_random(15),
+            'id_role'=> 1
         ]);
 
         return redirect()->route('login')->with('msg_success', 'Akun Berhasil di Buat silakan Login Untuk Melanjutkan');

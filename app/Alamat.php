@@ -14,7 +14,7 @@ class Alamat extends Model
         'id_provinsi',
         'id_kabupaten',
         'id_kecamatan',
-        'id_desa'
+        'id_desa',
     ];
 
     public function cabang()
@@ -39,6 +39,6 @@ class Alamat extends Model
 
     public function desa()
     {
-        return $this->belongsTo('App\Village', 'id_desa');
+        return $this->belongsTo('Laravolt\Indonesia\Models\Village', 'id_desa');
     }
 }

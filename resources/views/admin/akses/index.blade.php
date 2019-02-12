@@ -13,7 +13,7 @@
                     </div>
                     <div class="box-body no-padding">
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#"><i class="fa fa-user"></i> Anggota</a></li>
+                            <li><a href="{{ route('anggota.index') }}"><i class="fa fa-user"></i> Anggota</a></li>
                             <li class="active"><a href="{{ route('akses.index') }}"><i class="fa fa-key"></i> Hak Akses<span class="label label-primary pull-right"></span></a></li>
                         </ul>
                     </div>

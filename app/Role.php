@@ -27,7 +27,7 @@ class Role extends Model
 
     public function aksesRole()
     {
-        return $this->hasMany('App\Akses_role', 'id_role')->where('id_role', Auth::user()->id)->get();
+        return $this->hasMany('App\Akses_role', 'id_role')->where('id_role', Auth::user()->role->id)->get();
     }
 
     public function akses()

@@ -59,9 +59,6 @@ class CabangController extends Controller
             'kecamatan' => 'required|numeric',
             'desa'      => 'required|numeric'
         ]);
-        // dd($r->alamat);
-
-        // DB::statement('set foreign_key_checks=0;');
 
         $alamat = Alamat::create([
             'nama'          => $r->alamat,
@@ -70,7 +67,7 @@ class CabangController extends Controller
             'id_desa'       => $r->desa,
             'id_kecamatan'  => $r->kecamatan
         ]);
-        // dd($alamat->id);
+
         Cabang::create([
             'nama'      => $r->nama,
             'id_alamat' => $alamat->id,
@@ -118,6 +115,7 @@ class CabangController extends Controller
     public function update(Request $r, Cabang $cabang)
     {
         // $cabang = Cabang::findOrFail($id);
+        // dd($r);
         $alamat = Alamat::findOrFail($cabang->id_alamat);
         // dd($alamat);
         $r->validate([
